@@ -1,0 +1,77 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "sbom-sha256:d46b27eac0f42947aaba993bae7844abdae497d5b4665d454eedcdb916671d45",
+  "spdxVersion": "SPDX-2.3",
+  "creationInfo": {
+    "created": "2025-02-13T17:33:12Z",
+    "creators": [
+      "Tool: apko (v1.1.11)",
+      "Organization: Chainguard, Inc"
+    ],
+    "licenseListVersion": "3.27"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "https://spdx.org/spdxdocs/apko/",
+  "documentDescribes": [
+    "SPDXRef-Package-Image-sha256-490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8"
+  ],
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-Image-sha256-490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8",
+      "name": "sha256:490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8",
+      "versionInfo": "sha256:490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8",
+      "filesAnalyzed": false,
+      "description": "apko container image",
+      "downloadLocation": "NOASSERTION",
+      "supplier": "Organization: apko-generated image",
+      "primaryPackagePurpose": "CONTAINER",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:oci/apko-test-image@sha256:490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8?arch=amd64\u0026mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson\u0026os=linux",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-ImageLayer-sha256-d46b27eac0f42947aaba993bae7844abdae497d5b4665d454eedcdb916671d45",
+      "name": "sha256:d46b27eac0f42947aaba993bae7844abdae497d5b4665d454eedcdb916671d45",
+      "versionInfo": "unknown",
+      "filesAnalyzed": false,
+      "description": "apko operating system layer",
+      "downloadLocation": "NOASSERTION",
+      "supplier": "Organization: apko-generated image",
+      "primaryPackagePurpose": "CONTAINER",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:oci/apko-test-image@sha256:d46b27eac0f42947aaba993bae7844abdae497d5b4665d454eedcdb916671d45?arch=amd64\u0026mediaType=application%2Fvnd.oci.image.layer.v1.tar%2Bgzip\u0026os=linux",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-OperatingSystem-unknown",
+      "name": "unknown",
+      "versionInfo": "unknown",
+      "filesAnalyzed": false,
+      "description": "Operating System",
+      "downloadLocation": "NOASSERTION",
+      "supplier": "Organization: apko-generated image",
+      "primaryPackagePurpose": "OPERATING_SYSTEM"
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-Package-Image-sha256-490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-Package-ImageLayer-sha256-d46b27eac0f42947aaba993bae7844abdae497d5b4665d454eedcdb916671d45"
+    }
+  ]
+}

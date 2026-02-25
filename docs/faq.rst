@@ -404,11 +404,20 @@ pipelines to enrich or validate the data directly in ScanCode.io.
 While most valid SBOMs should work out of the box, SBOMs from the following tools
 are actively supported and tested::
 
+  - Aikido: https://www.aikido.dev/scanners/open-source-license-risk
+  - Amazon Inspector SBOM Generator (Sbomgen): https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html
   - Anchore: https://anchore.com/sbom/
+  - apko: https://github.com/chainguard-dev/apko
   - CycloneDX cdxgen: https://cyclonedx.github.io/cdxgen/
-  - OWASP dep-scan: https://owasp.org/www-project-dep-scan/
+  - CycloneDX native plugins: https://github.com/CycloneDX
+    (cyclonedx-python, cyclonedx-node-npm, cyclonedx-node-yarn,
+    cyclonedx-gradle-plugin, cyclonedx-maven-plugin, cyclonedx-dotnet,
+    cyclonedx-gomod, cyclonedx-rust-cargo, cyclonedx-php-composer,
+    cyclonedx-ruby-gem)
+  - gh-sbom: https://github.com/advanced-security/gh-sbom
   - OSS Review Toolkit (ORT): https://oss-review-toolkit.org/ort/
   - OSV-Scanner: https://osv.dev/
+  - OWASP dep-scan: https://owasp.org/www-project-dep-scan/
   - SBOM tool: https://github.com/microsoft/sbom-tool/
   - Trivy: https://trivy.dev/
 

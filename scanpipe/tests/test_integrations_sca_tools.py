@@ -355,7 +355,87 @@ TEST_DATA = {
             "pkg:unknown/alpine@3.17.0",
         ],
     },
+    ### CycloneDX Python (cyclonedx-py v7.0.1-alpha.2)
+    #   $ pip install cyclonedx-bom
+    #   $ cyclonedx-py environment --output-format JSON --outfile cyclonedx-python-sbom.json
+    #   Tool: cyclonedx-py 7.0.1-alpha.2 / cyclonedx-python-lib 10.4.1 (CycloneDX 1.6)
+    "cyclonedx-python-sbom.json": {
+        "resources": 1,
+        "packages": 30,
+        "vulnerable_packages": 0,
+        "dependencies": 0,
+        "vulnerabilities": 0,
+        "purls": [
+            "pkg:pypi/arrow@1.3.0",
+            "pkg:pypi/attrs@25.3.0",
+            "pkg:pypi/boolean.py@5.0",
+            "pkg:pypi/chardet@5.2.0",
+            "pkg:pypi/cyclonedx-bom@7.0.1a2",
+            "pkg:pypi/cyclonedx-python-lib@10.4.1",
+            "pkg:pypi/defusedxml@0.7.1",
+            "pkg:pypi/fqdn@1.5.1",
+            "pkg:pypi/idna@3.10",
+            "pkg:pypi/isoduration@20.11.0",
+            "pkg:pypi/jsonpointer@3.0.0",
+            "pkg:pypi/jsonschema-specifications@2025.4.1",
+            "pkg:pypi/jsonschema@4.24.0",
+            "pkg:pypi/license-expression@30.4.3",
+            "pkg:pypi/lxml@6.0.0",
+            "pkg:pypi/packageurl-python@0.17.1",
+            "pkg:pypi/packaging@25.0",
+            "pkg:pypi/pip-requirements-parser@32.0.1",
+            "pkg:pypi/py-serializable@2.0.0",
+            "pkg:pypi/pyparsing@3.2.3",
+            "pkg:pypi/python-dateutil@2.9.0.post0",
+            "pkg:pypi/referencing@0.36.2",
+            "pkg:pypi/rfc3339-validator@0.1.4",
+            "pkg:pypi/rfc3987@1.3.8",
+            "pkg:pypi/rpds-py@0.26.0",
+            "pkg:pypi/six@1.17.0",
+            "pkg:pypi/sortedcontainers@2.4.0",
+            "pkg:pypi/types-python-dateutil@2.9.0.20250708",
+            "pkg:pypi/uri-template@1.3.0",
+            "pkg:pypi/webcolors@24.11.1",
+        ],
+    },
+    ### CycloneDX Node.js npm (@cyclonedx/cyclonedx-npm v4.1.2)
+    #   Minimal single-dependency project (lodash only) for deterministic output.
+    #   $ mkdir sample-app && cd sample-app
+    #   $ npm init -y && npm install lodash@4.17.21 --package-lock-only
+    #   $ npx @cyclonedx/cyclonedx-npm --package-lock-only \
+    #       --output-format JSON --output-file cyclonedx-node-npm-sbom.json
+    #   Tool: cyclonedx-npm 4.1.2 / cyclonedx-library 9.4.1 (CycloneDX 1.6)
+    "cyclonedx-node-npm-sbom.json": {
+        "resources": 1,
+        "packages": 1,
+        "vulnerable_packages": 0,
+        "dependencies": 0,
+        "vulnerabilities": 0,
+        "purls": [
+            "pkg:npm/lodash@4.17.21",
+        ],
+    },
+    ### apko (Chainguard OCI image builder v1.1.11) — SPDX 2.3 JSON output
+    #   apko.yaml: alpine-baselayout, busybox, ca-certificates-bundle, musl, zlib
+    #   $ docker run --rm \
+    #       -v $(pwd):/workspace \
+    #       -v $(pwd)/sbom-out:/sbom-out \
+    #       cgr.dev/chainguard/apko:latest build --sbom-path /sbom-out \
+    #       /workspace/apko-test.yaml apko-test-image:latest /dev/null
+    #   Tool: apko v1.1.11 / Chainguard, Inc (SPDX 2.3)
+    "apko-alpine-sbom.spdx.json": {
+        "resources": 1,
+        "packages": 3,
+        "vulnerable_packages": 0,
+        "dependencies": 0,
+        "vulnerabilities": 0,
+        "purls": [
+            "pkg:oci/apko-test-image@sha256:490e6efb1070c837b51caaa1d4229faca825056867c7a5afc20fd1738fe8e1e8?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux",
+            "pkg:oci/apko-test-image@sha256:d46b27eac0f42947aaba993bae7844abdae497d5b4665d454eedcdb916671d45?arch=amd64&mediaType=application%2Fvnd.oci.image.layer.v1.tar%2Bgzip&os=linux",
+        ],
+    },
 }
+
 
 
 class ScanPipeIntegrationsBaseTest(TestCase):
